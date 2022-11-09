@@ -1,0 +1,11 @@
+{
+    "name": "YouTube Channel Speed",
+    "version": "1.0.0",
+    "description": "update YouTube video speed based on the channel",
+    "manifest_version": 3,
+    "author": "Connie Williamson",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "YouTube Channel Speed"
+    }
+}
