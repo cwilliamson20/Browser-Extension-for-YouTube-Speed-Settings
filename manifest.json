@@ -1,11 +1,43 @@
 {
-    "name": "YouTube Channel Speed",
+    "name": "Custom Channel Default Speed for YouTube",
     "version": "1.0.0",
     "description": "update YouTube video speed based on the channel",
     "manifest_version": 3,
+    "homepage_url": "https://github.com/cwilliamson20/Browser-Extension-for-YouTube-Speed-Settings",
     "author": "Connie Williamson",
-    "action":{
-        "default_popup": "index.html",
-        "default_title": "YouTube Channel Speed"
-    }
+    "default_locale": "en",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icons/catpic.png",
+        "48": "icons/catpic.png",
+        "128": "icons/catpic.png"
+      },
+    "action": {
+        "default_icon": "icons/catpic.png",
+        "default_title": "Custom Channel Default Speed for YouTube",
+        "default_popup": "src/browser_action/browser_action.html"
+    },
+    "options_page": "src/options/options.html",
+    "permissions": ["activeTab", "scripting", "scripting"],
+    "host_permisions": [
+        "https://youtube.com/*",
+        "https://youtu.be/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://youtube.com/*",
+                "https://youtu.be/*"
+            ],
+            "js": [
+                "src/inject/inject.js"
+            ],
+            "css": [
+                "src/inject/inject.css"
+            ],
+            "all_frames": true
+        }
+    ]
 }
